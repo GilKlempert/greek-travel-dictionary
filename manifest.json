@@ -1,0 +1,19 @@
+{
+  "name": "מילון יווני לטיול",
+  "short_name": "מילון יווני",
+  "description": "מילון כיס יווני לנוסע הישראלי – ביטויים, תעתיק והגייה קולית. עובד גם ללא אינטרנט.",
+  "lang": "he",
+  "dir": "rtl",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#005BBB",
+  "theme_color": "#005BBB",
+  "categories": ["travel", "education", "reference"],
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

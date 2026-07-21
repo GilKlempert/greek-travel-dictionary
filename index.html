@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0" />
+  <meta name="theme-color" content="#005BBB" />
+  <meta name="description" content="מילון כיס יווני לנוסע הישראלי – ביטויים, תעתיק והגייה קולית. עובד גם ללא אינטרנט." />
+  <title>מילון יווני לטיול</title>
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="מילון יווני" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Frank+Ruhl+Libre:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ===== סרגל עליון ===== -->
+  <header class="topbar" id="topbar">
+    <button class="icon-btn" id="backBtn" aria-label="חזרה" hidden>
+      <span class="material-icons-round">arrow_forward</span>
+    </button>
+    <h1 class="topbar__title" id="topTitle">מילון יווני 🇬🇷</h1>
+    <button class="icon-btn" id="themeBtn" aria-label="מצב כהה/בהיר">
+      <span class="material-icons-round" id="themeIcon">dark_mode</span>
+    </button>
+  </header>
+
+  <!-- ===== חיפוש ===== -->
+  <div class="searchbar" id="searchWrap">
+    <span class="material-icons-round searchbar__icon">search</span>
+    <input id="searchInput" class="searchbar__input" type="search"
+           placeholder="חיפוש בעברית, יוונית או תעתיק…"
+           autocomplete="off" aria-label="חיפוש ביטוי" />
+    <button class="icon-btn searchbar__clear" id="clearSearch" aria-label="ניקוי" hidden>
+      <span class="material-icons-round">close</span>
+    </button>
+  </div>
+
+  <!-- ===== תוכן ראשי ===== -->
+  <main id="app" class="app"></main>
+
+  <!-- ===== ניווט תחתון ===== -->
+  <nav class="tabbar" id="tabbar" aria-label="ניווט ראשי">
+    <button class="tab tab--active" data-view="home">
+      <span class="material-icons-round">home</span><span>בית</span>
+    </button>
+    <button class="tab" data-view="categories">
+      <span class="material-icons-round">grid_view</span><span>קטגוריות</span>
+    </button>
+    <button class="tab" data-view="favorites">
+      <span class="material-icons-round">favorite</span><span>מועדפים</span>
+    </button>
+    <button class="tab tab--emergency" data-view="emergency">
+      <span class="material-icons-round">emergency</span><span>חירום</span>
+    </button>
+  </nav>
+
+  <!-- ===== מסך תצוגה גדולה ===== -->
+  <div class="bigcard" id="bigcard" hidden>
+    <button class="bigcard__close" id="bigClose" aria-label="סגירה">
+      <span class="material-icons-round">close</span>
+    </button>
+    <div class="bigcard__inner">
+      <p class="bigcard__he" id="bigHe"></p>
+      <p class="bigcard__gr" id="bigGr"></p>
+      <p class="bigcard__tr" id="bigTr"></p>
+      <button class="bigcard__speak" id="bigSpeak">
+        <span class="material-icons-round">volume_up</span> השמעה
+      </button>
+      <p class="bigcard__hint">הראו את המסך לנהג המונית או למלצר 🙂</p>
+    </div>
+  </div>
+
+  <!-- ===== באנר התקנה ===== -->
+  <div class="install" id="installBanner" hidden>
+    <span class="material-icons-round">install_mobile</span>
+    <span>התקינו את האפליקציה למסך הבית</span>
+    <button id="installBtn">התקנה</button>
+    <button id="installDismiss" class="icon-btn" aria-label="סגירה">
+      <span class="material-icons-round">close</span>
+    </button>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
