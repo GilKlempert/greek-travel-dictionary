@@ -1,0 +1,228 @@
+/* ================= בסיס וצבעים ================= */
+:root{
+  --blue:#005BBB;
+  --blue-dark:#00448c;
+  --blue-soft:#e6f0fb;
+  --white:#ffffff;
+  --bg:#f4f6fa;
+  --card:#ffffff;
+  --text:#132030;
+  --muted:#6b7a90;
+  --line:#e5eaf1;
+  --danger:#d7263d;
+  --shadow:0 6px 20px rgba(16,42,80,.08);
+  --shadow-lg:0 14px 40px rgba(16,42,80,.16);
+  --radius:18px;
+  --safe-top:env(safe-area-inset-top,0px);
+  --safe-bottom:env(safe-area-inset-bottom,0px);
+}
+[data-theme="dark"]{
+  --blue:#3d92ff;
+  --blue-dark:#2b6fd0;
+  --blue-soft:#16283f;
+  --white:#e9eef6;
+  --bg:#0c1420;
+  --card:#141f30;
+  --text:#e9eef6;
+  --muted:#93a4bc;
+  --line:#22304a;
+  --shadow:0 6px 20px rgba(0,0,0,.35);
+  --shadow-lg:0 14px 40px rgba(0,0,0,.5);
+}
+
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+[hidden]{display:none!important;}
+html,body{margin:0;padding:0;}
+body{
+  font-family:"Heebo",system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  padding-top:calc(112px + var(--safe-top));
+  padding-bottom:calc(78px + var(--safe-bottom));
+  transition:background .25s,color .25s;
+}
+h1,h2,h3{font-family:"Frank Ruhl Libre","Heebo",serif;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+
+/* ================= סרגל עליון ================= */
+.topbar{
+  position:fixed;top:0;inset-inline:0;z-index:40;
+  height:calc(56px + var(--safe-top));
+  padding-top:var(--safe-top);
+  display:flex;align-items:center;justify-content:space-between;
+  padding-inline:12px;
+  background:var(--blue);color:#fff;
+  box-shadow:var(--shadow);
+}
+.topbar__title{font-size:1.15rem;margin:0;font-weight:900;}
+.icon-btn{
+  width:44px;height:44px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:inherit;flex:none;
+}
+.icon-btn:active{background:rgba(255,255,255,.18);}
+
+/* ================= חיפוש ================= */
+.searchbar{
+  position:fixed;top:calc(56px + var(--safe-top));inset-inline:0;z-index:39;
+  height:56px;display:flex;align-items:center;gap:8px;
+  padding-inline:14px;background:var(--blue);
+}
+.searchbar__icon{color:#fff;opacity:.85;}
+.searchbar__input{
+  flex:1;height:42px;border-radius:22px;border:none;
+  padding-inline:16px;font-size:1rem;
+  background:var(--white);color:var(--text);
+}
+.searchbar__input:focus{outline:2px solid #fff;}
+.searchbar__clear .material-icons-round{color:#fff;}
+
+/* ================= פריסת תוכן ================= */
+.app{max-width:760px;margin:0 auto;padding:14px 14px 24px;}
+.section-title{
+  font-size:1.05rem;font-weight:900;margin:20px 4px 10px;
+  display:flex;align-items:center;gap:8px;color:var(--text);
+}
+.section-title .material-icons-round{color:var(--blue);}
+
+/* ---- כרטיסי בית מהירים ---- */
+.quickgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.quick{
+  background:var(--card);border-radius:var(--radius);padding:16px;
+  box-shadow:var(--shadow);display:flex;flex-direction:column;gap:6px;
+  align-items:flex-start;text-align:start;transition:transform .12s;
+  border:1px solid var(--line);
+}
+.quick:active{transform:scale(.97);}
+.quick .material-icons-round{font-size:30px;color:var(--blue);}
+.quick b{font-size:1rem;}
+.quick small{color:var(--muted);}
+.quick--emergency{background:linear-gradient(135deg,#d7263d,#b01e30);color:#fff;border:none;}
+.quick--emergency .material-icons-round,.quick--emergency small{color:#fff;opacity:.95;}
+
+/* ---- רשת קטגוריות ---- */
+.catgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.cat{
+  background:var(--card);border-radius:var(--radius);padding:18px 14px;
+  box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px;
+  align-items:center;text-align:center;border:1px solid var(--line);
+  transition:transform .12s;
+}
+.cat:active{transform:scale(.96);}
+.cat__ic{
+  width:52px;height:52px;border-radius:16px;display:flex;
+  align-items:center;justify-content:center;color:#fff;
+}
+.cat__ic .material-icons-round{font-size:28px;}
+.cat b{font-size:.98rem;}
+.cat small{color:var(--muted);font-size:.8rem;}
+
+/* ================= כרטיס ביטוי ================= */
+.phrase{
+  background:var(--card);border-radius:var(--radius);
+  padding:14px 16px;margin-bottom:10px;box-shadow:var(--shadow);
+  border:1px solid var(--line);display:flex;align-items:center;gap:12px;
+  user-select:none;transition:transform .1s;
+}
+.phrase:active{transform:scale(.99);}
+.phrase__main{flex:1;min-width:0;}
+.phrase__he{font-size:1.08rem;font-weight:700;margin:0 0 2px;}
+.phrase__gr{font-size:1.05rem;color:var(--blue);font-weight:700;margin:0;direction:ltr;text-align:start;}
+.phrase__tr{font-size:.92rem;color:var(--muted);margin:2px 0 0;}
+.phrase__actions{display:flex;flex-direction:column;gap:6px;flex:none;}
+.pbtn{
+  width:44px;height:44px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--blue-soft);color:var(--blue);
+}
+.pbtn:active{background:var(--blue);color:#fff;}
+.pbtn--fav.on{background:#ffe3ea;color:var(--danger);}
+[data-theme="dark"] .pbtn--fav.on{background:#3a1620;}
+.pbtn--fav.on .material-icons-round{font-variation-settings:'FILL' 1;}
+
+/* ================= מצב חירום ================= */
+.emergency-view .phrase{border:2px solid var(--danger);}
+.emergency-view .phrase__he{font-size:1.3rem;}
+.emergency-view .phrase__gr{font-size:1.25rem;}
+.emergency-view .pbtn{background:var(--danger);color:#fff;width:52px;height:52px;}
+
+/* ================= ביטוי אקראי ================= */
+.random{
+  background:linear-gradient(135deg,var(--blue),#0097e6);
+  color:#fff;border-radius:var(--radius);padding:22px;text-align:center;
+  box-shadow:var(--shadow-lg);
+}
+.random__he{font-size:1.4rem;font-weight:900;margin:0 0 6px;}
+.random__gr{font-size:1.6rem;font-weight:900;margin:0;direction:ltr;}
+.random__tr{opacity:.9;margin:6px 0 16px;}
+.random__row{display:flex;gap:10px;justify-content:center;}
+.random__row button{
+  background:rgba(255,255,255,.2);color:#fff;border-radius:14px;
+  padding:10px 18px;font-weight:700;display:flex;align-items:center;gap:6px;
+}
+.random__row button:active{background:rgba(255,255,255,.35);}
+
+/* ================= מצב ריק ================= */
+.empty{text-align:center;color:var(--muted);padding:50px 20px;}
+.empty .material-icons-round{font-size:48px;opacity:.5;}
+
+/* ================= ניווט תחתון ================= */
+.tabbar{
+  position:fixed;bottom:0;inset-inline:0;z-index:40;
+  height:calc(64px + var(--safe-bottom));
+  padding-bottom:var(--safe-bottom);
+  display:flex;background:var(--card);border-top:1px solid var(--line);
+  box-shadow:0 -4px 18px rgba(16,42,80,.06);
+}
+.tab{
+  flex:1;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:2px;color:var(--muted);font-size:.72rem;font-weight:700;
+}
+.tab .material-icons-round{font-size:24px;}
+.tab--active{color:var(--blue);}
+.tab--active .material-icons-round{font-variation-settings:'FILL' 1;}
+.tab--emergency.tab--active{color:var(--danger);}
+
+/* ================= כרטיס תצוגה גדולה ================= */
+.bigcard{
+  position:fixed;inset:0;z-index:60;background:var(--blue);
+  display:flex;align-items:center;justify-content:center;
+  padding:24px;color:#fff;text-align:center;
+  animation:pop .18s ease;
+}
+@keyframes pop{from{opacity:0;transform:scale(.94);}to{opacity:1;transform:scale(1);}}
+.bigcard__close{position:absolute;top:calc(16px + var(--safe-top));inset-inline-end:16px;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;}
+.bigcard__inner{max-width:600px;width:100%;}
+.bigcard__he{font-size:1.6rem;font-weight:700;margin:0 0 14px;opacity:.95;}
+.bigcard__gr{font-family:"Frank Ruhl Libre",serif;font-size:clamp(2.6rem,12vw,5rem);font-weight:900;margin:0;line-height:1.1;direction:ltr;}
+.bigcard__tr{font-size:1.4rem;margin:16px 0 26px;opacity:.9;}
+.bigcard__speak{
+  background:#fff;color:var(--blue);border-radius:16px;
+  padding:16px 30px;font-size:1.15rem;font-weight:900;
+  display:inline-flex;align-items:center;gap:8px;box-shadow:var(--shadow-lg);
+}
+.bigcard__hint{margin-top:26px;opacity:.8;}
+
+/* ================= באנר התקנה ================= */
+.install{
+  position:fixed;left:12px;right:12px;bottom:calc(74px + var(--safe-bottom));z-index:55;
+  background:var(--card);border:1px solid var(--line);border-radius:16px;
+  box-shadow:var(--shadow-lg);padding:12px 14px;display:flex;align-items:center;gap:10px;
+  max-width:740px;margin:0 auto;
+}
+.install .material-icons-round{color:var(--blue);}
+.install span:nth-child(2){flex:1;font-weight:700;font-size:.92rem;}
+.install #installBtn{background:var(--blue);color:#fff;border-radius:12px;padding:9px 16px;font-weight:800;}
+
+/* ================= טוסט ================= */
+.toast{
+  position:fixed;bottom:calc(84px + var(--safe-bottom));left:50%;transform:translateX(-50%) translateY(20px);
+  background:#132030;color:#fff;padding:10px 18px;border-radius:20px;font-size:.9rem;
+  opacity:0;pointer-events:none;transition:.25s;z-index:70;white-space:nowrap;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+@media(min-width:600px){
+  .quickgrid,.catgrid{grid-template-columns:repeat(3,1fr);}
+}
